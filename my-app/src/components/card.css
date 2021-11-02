@@ -1,0 +1,32 @@
+#quote-text {
+  width: 50%;
+  min-height: 60%;
+  padding: 20px 40px;
+  display: flex;
+  border-radius: 5px;
+}
+
+#text {
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 500;
+  text-align: cente;
+}
+
+#new-quote {
+  color: #ffffff;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px;
+  margin: 5px;
+}
+
+i {
+  color: #ffffff;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px;
+  margin: 5px;
+}
