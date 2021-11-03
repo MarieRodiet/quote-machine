@@ -13,18 +13,23 @@
   text-align: cente;
 }
 
-#new-quote {
+.socialMediaBoxes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
   color: #ffffff;
-  font-size: 15px;
   border: none;
   border-radius: 5px;
   padding: 15px 25px;
   margin: 5px;
+  width: 20px;
 }
 
-i {
+#new-quote {
   color: #ffffff;
-  font-size: 20px;
+  font-size: 15px;
   border: none;
   border-radius: 5px;
   padding: 15px 25px;

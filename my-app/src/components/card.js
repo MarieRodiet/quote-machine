@@ -1,5 +1,13 @@
 import React from 'react';
 import './card.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faTwitter,
+    faFacebookF
+} from "@fortawesome/free-brands-svg-icons";
+
+
+//<FontAwesomeIcon icon={['fad', 'coffee']} />
 
 
 class Card extends React.Component {
@@ -32,9 +40,9 @@ class Card extends React.Component {
                     - {quotes[index].author}
                 </div>
                 <section style={{ width: "90%", display: 'flex', justifyContent: "space-between" }}>
-                    <div>
-                        <a href="twitter.com/intent/tweet" target="_blank" ><i className="fab fa-facebook-f" style={{ backgroundColor: color }}></i></a>
-                        <a href="twitter.com/intent/tweet" target="_blank" ><i className="fab fa-twitter" style={{ backgroundColor: color }}></i></a>
+                    <div className="socialMediaBoxes" style={{ backgroundColor: color }}>
+                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTwitter} size="2x" /></a>
+                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faFacebookF} size="2x" /></a>
                     </div>
                     <button onClick={onChange} id="new-quote" style={{ backgroundColor: color }}>New quote</button>
                 </section>
