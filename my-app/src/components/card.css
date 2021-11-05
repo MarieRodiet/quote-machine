@@ -1,30 +1,43 @@
-#quote-text {
-  width: 50%;
-  min-height: 60%;
-  padding: 20px 40px;
+#quote-box {
+  width: 100%;
+  max-height: 40%;
+  padding: 10px 30px;
   display: flex;
-  border-radius: 5px;
 }
 
 #text {
   font-size: 30px;
   line-height: 1.2;
   font-weight: 500;
-  text-align: cente;
+  text-align: center;
+}
+
+#author {
+  margin-right: 20px;
+}
+
+section {
+  width: 90%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
 }
 
 .socialMediaBoxes {
   display: flex;
-  justify-content: space-between;
 }
 
 .links {
-  color: #ffffff;
   border: none;
   border-radius: 5px;
-  padding: 15px 25px;
-  margin: 5px;
-  width: 20px;
+  margin-right: 5px;
+  font-size: 25px;
+}
+
+.socialMediaBoxes :hover,
+button :hover {
+  opacity: 0.9 !important;
 }
 
 #new-quote {
@@ -32,6 +45,8 @@
   font-size: 15px;
   border: none;
   border-radius: 5px;
-  padding: 15px 25px;
-  margin: 5px;
+}
+
+@media screen and (min-width: 769px) {
+  /* STYLES HERE */
 }

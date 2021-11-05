@@ -2,9 +2,12 @@ import React from 'react';
 import './card.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faTwitter,
-    faFacebookF
+    faTwitterSquare,
+    faTumblrSquare
 } from "@fortawesome/free-brands-svg-icons";
+import {
+    faQuoteLeft
+} from "@fortawesome/free-solid-svg-icons";
 
 
 //<FontAwesomeIcon icon={['fad', 'coffee']} />
@@ -34,15 +37,15 @@ class Card extends React.Component {
         return (
             <div id="quote-box" className="card">
                 <div id="text" className="card-body" style={{ color: color }}>
-                    {quotes[index].quote}
+                    <FontAwesomeIcon icon={faQuoteLeft} style={{marginRight: "7px"}}/>    {quotes[index].quote}
                 </div>
                 <div id="author" style={{ color: color, display: "flex", justifyContent: "end" }}>
                     - {quotes[index].author}
                 </div>
-                <section style={{ width: "90%", display: 'flex', justifyContent: "space-between" }}>
-                    <div className="socialMediaBoxes" style={{ backgroundColor: color }}>
-                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTwitter} size="2x" /></a>
-                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faFacebookF} size="2x" /></a>
+                <section>
+                    <div className="socialMediaBoxes">
+                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTwitterSquare} style={{ color: color }} size="2x"/></a>
+                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTumblrSquare} style={{ color: color }} size="2x"/></a>
                     </div>
                     <button onClick={onChange} id="new-quote" style={{ backgroundColor: color }}>New quote</button>
                 </section>
