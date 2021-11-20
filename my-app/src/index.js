@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { changeIndex } from './actions';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -10,30 +12,46 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = createStore(reducer);
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    generateNewIndex: () => {
+      dispatch(changeIndex())
+    }
+  };
+}
+
+//unable the App component to access what is in the Redux store
+function mapStateToProps(state){
+  return {
+    index: state.index,
+    color: state.color,
+    quote: state.quote
+  }
+};
+
+/*
+function mapStateToProps(state) {
+  return {
+    a: 42,
+    todos: state.todos,
+    filter: state.visibilityFilter,
+  }
+} */
+
+
+
+//connect the redux store to the state of App component
+const Container = connect(mapStateToProps, mapDispatchToProps)(App);
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <Container />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-/*
-class AppWrapper extends React.Component {
-constructor(props){
-  super(props)
-    this.state = {
-      index: 0
-    }
-}
-  // Change code above this line
-  render() {
-    <Provider store={store}>
-      <App />
-    </Provider>
-  }
-}; */
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
