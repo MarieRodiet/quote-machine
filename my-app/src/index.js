@@ -21,11 +21,11 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 //unable the App component to access what is in the Redux store
-function mapStateToProps(state){
+function mapStateToProps(state) {
   return {
     index: state.index,
-    color: state.color,
-    quote: state.quote
+    color: state.color[state.index],
+    quote: state.quote[state.index]
   }
 };
 
