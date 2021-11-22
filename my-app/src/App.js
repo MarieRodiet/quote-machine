@@ -6,16 +6,45 @@ import 'font-awesome/css/font-awesome.min.css';
 
 export default class App extends React.Component {
   //try to put quotes inside state so it is passed to Card as props
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0
+    };
+    this.generateNewIndex = this.generateNewIndex.bind(this);
+  }
+
+  generateNewIndex() {
+    const random = Math.floor(Math.random() * 14);
+    this.setState({
+      index: random
+    });
+  }
+
 
   render() {
-    const color = this.props.color;
+    let colors = ["#94455c",
+      "#2596BE",
+      "#Be4f25",
+      "#7f1472",
+      "#7e9085",
+      "#6d78d0",
+      "#222969",
+      "#226944",
+      "#Be4f25",
+      "#7f1472",
+      "#2596be",
+      "#F9b2b2",
+      "#F36062",
+      "#54a473"];
 
     return (
 
-      <div id="app" style={color}>
+      <div id="app" style={{ backgroundColor: colors[this.state.index] }}>
         <Card
-          color={color}
-          onChange={this.props.generateNewIndex}
+          color={colors[this.state.index]}
+          onChange={this.generateNewIndex}
+          index={this.state.index}
         />
         <span id="byMe">By Marie</span>
 
@@ -24,16 +53,4 @@ export default class App extends React.Component {
   }
 }
 
-
-
-
-
-// to provide specific action creators to your React components 
-//so they can dispatch actions against the Redux store
-//returns a function that calls dispatch with an action creator and any relevant action data
-
-/* mapDispatchToProps()takes dispatch as an argument,
-then returns an object. The object should have a property getNewQuote
-set to the dispatch function, which takes a parameter for the new index
-to get when it dispatches changeQuote, which is the action creator()*/
 

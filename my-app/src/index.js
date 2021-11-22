@@ -1,53 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { changeIndex } from './actions';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import reducer from './reducers.js/reducer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const store = createStore(reducer);
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    generateNewIndex: () => {
-      dispatch(changeIndex())
-    }
-  };
-}
-
-//unable the App component to access what is in the Redux store
-function mapStateToProps(state) {
-  return {
-    index: state.index,
-    color: state.color[state.index],
-    quote: state.quote[state.index]
-  }
-};
-
-/*
-function mapStateToProps(state) {
-  return {
-    a: 42,
-    todos: state.todos,
-    filter: state.visibilityFilter,
-  }
-} */
-
-
-
-//connect the redux store to the state of App component
-const Container = connect(mapStateToProps, mapDispatchToProps)(App);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <Container />
-    </Provider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
