@@ -13,22 +13,21 @@ import {
 
 class Card extends React.Component {
     render() {
-        const { quote, onChange, c } = this.props;
-
+        const { onChange, quote, color } = this.props;
         return (
             <div id="quote-box" className="card">
-                <div id="text" className="card-body" style={{ color: c }}>
+                <div id="text" className="card-body" style={{ color: color }}>
                     <FontAwesomeIcon icon={faQuoteLeft} style={{ marginRight: "7px" }} />    {quote.q}
                 </div>
-                <div id="author" style={{ color: c, display: "flex", justifyContent: "end" }}>
+                <div id="author" style={{ color: color, display: "flex", justifyContent: "end" }}>
                     - {quote.a}
                 </div>
                 <section>
                     <div className="socialMediaBoxes">
-                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTwitterSquare} style={{ color: c }} size="2x" /></a>
-                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTumblrSquare} style={{ color: c }} size="2x" /></a>
+                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTwitterSquare} style={{ color: color }} size="2x" /></a>
+                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTumblrSquare} style={{ color: color }} size="2x" /></a>
                     </div>
-                    <button onClick={onChange} id="new-quote" style={{ backgroundColor: c}}>New quote</button>
+                    <button onClick={onChange} id="new-quote" style={{ backgroundColor: color }}>New quote</button>
                 </section>
 
             </div>);

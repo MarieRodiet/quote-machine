@@ -1,5 +1,5 @@
 #quote-box {
-  width: 100%;
+  width: 40%;
   max-height: 40%;
   padding: 10px 30px;
   display: flex;
@@ -47,6 +47,16 @@ button :hover {
   border-radius: 5px;
 }
 
-@media screen and (min-width: 769px) {
-  /* STYLES HERE */
+@media screen and (max-width: 992px) {
+  /* STYLES HERE 992 px et 768 px. */
+
+  #quote-box {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #quote-box {
+    width: 80%;
+  }
 }
