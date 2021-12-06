@@ -2,7 +2,9 @@
 When you use the dispatch function to dispatch an action, 
 you are sending the information to the reducer.
 */
-const color =
+import { CHANGE_INDEX } from "../actions";
+
+const colors =
     ["#94455c",
         "#2596BE",
         "#Be4f25",
@@ -35,23 +37,21 @@ const quotes = [
     { q: "Develop success from failures. Discouragement and failure are two of the surest stepping stones to success.", a: "Dale Carnegie" },
 ];
 
-const i = 4;
+const initialState = {
+    quote: { q: "Courage doesn't always roar. Sometimes courage is the quiet voice at the end of the day saying 'I will try again tomorrow.'", a: "Mary Anne Radmacher" },
+    color: "#94455c"
+};
 
-const appReducer = (state = {
-    index: i,
-    quote: quotes[i],
-    color: color[i]
-}, action) => {
+const appReducer = (state = initialState, action) => {
     switch (action.type) {
         //return a random  and new color theme
-        case 'CHANGE_INDEX':
+        case CHANGE_INDEX:
             let newIndex = Math.floor(Math.random() * 14);
-            let newState = {
-                index: newIndex,
-                quote: this.quotes[newIndex],
-                color: this.color[newIndex]
-            }
-            return { newState };
+            return {
+                ...state,
+                quote: quotes[newIndex],
+                color: colors[newIndex],
+            };
         default: return state;
 
     }

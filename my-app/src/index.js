@@ -1,21 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeIndex } from './actions';
+import { CHANGE_INDEX } from './actions';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers.js/reducer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import thunk from 'redux-thunk';
 
-const store = createStore(reducer);
+const initialState = {};
+const middleware = [thunk];
+const store = createStore(reducer, initialState, compose(applyMiddleware(...middleware))
+);
 
 const mapDispatchToProps = (dispatch) => {
   return {
     generateNewIndex: () => {
-      dispatch(changeIndex())
+      dispatch(CHANGE_INDEX())
     }
   };
 }
@@ -23,40 +26,22 @@ const mapDispatchToProps = (dispatch) => {
 //unable the App component to access what is in the Redux store
 function mapStateToProps(state) {
   return {
-    index: state.index,
-    color: state.color[state.index],
-    quote: state.quote[state.index]
+    quote: state.quote,
+    color: state.color
   }
 };
-
-/*
-function mapStateToProps(state) {
-  return {
-    a: 42,
-    todos: state.todos,
-    filter: state.visibilityFilter,
-  }
-} */
-
 
 
 //connect the redux store to the state of App component
 const Container = connect(mapStateToProps, mapDispatchToProps)(App);
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Container />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+const Wrapper = () => (
+  <Provider store={store}>
+    <Container />
+  </Provider>
 );
+ReactDOM.render(<Wrapper />, document.getElementById('root'));
 
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
 
 /*
 REQUIREMENTS:

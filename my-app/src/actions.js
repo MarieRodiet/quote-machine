@@ -1,3 +1,1 @@
-export const changeIndex = () => ({
-    type: 'CHANGE_INDEX'
-});
+export const CHANGE_INDEX = 'CHANGE_INDEX';
