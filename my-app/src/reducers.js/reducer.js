@@ -1,7 +1,3 @@
-/*Reducers are functions that update your store, depending on the actions that were sent. 
-When you use the dispatch function to dispatch an action, 
-you are sending the information to the reducer.
-*/
 import { CHANGE_INDEX } from "../actions";
 
 const initialState = {
@@ -11,14 +7,11 @@ const initialState = {
 
 const appReducer = (state = initialState, action) => {
     switch (action.type) {
-        //return a random  and new color theme
         case CHANGE_INDEX:
             let a_quote = action.state.quote;
             let a_color = action.state.color;
             return { ...state, quote: a_quote, color: a_color };
-
         default: return state;
-
     }
 };
 

@@ -18,7 +18,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 function mapStateToProps(state) {
-  //UNDEFINED WHEN NEW QUOTE IS CLICKED
   return {
     quote: state.quote,
     color: state.color,
@@ -26,7 +25,6 @@ function mapStateToProps(state) {
 };
 
 
-//connect the redux store to the state of App component
 const Container = connect(mapStateToProps, mapDispatchToProps)(App);
 
 const AppWrapper = () => (
