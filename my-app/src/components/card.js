@@ -24,12 +24,11 @@ class Card extends React.Component {
                 </div>
                 <section>
                     <div className="socialMediaBoxes">
-                        <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTwitterSquare} style={{ color: color }} size="2x" /></a>
+                        <a id="tweet-quote" className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTwitterSquare} style={{ color: color }} size="2x" /></a>
                         <a className="links" href="twitter.com/intent/tweet" target="_blank" ><FontAwesomeIcon icon={faTumblrSquare} style={{ color: color }} size="2x" /></a>
                     </div>
                     <button onClick={onChange} id="new-quote" style={{ backgroundColor: color }}>New quote</button>
                 </section>
-
             </div>);
     }
 }
