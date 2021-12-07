@@ -17,7 +17,7 @@ const appReducer = (state = initialState, action) => {
             let a_color = action.state.color;
             return { ...state, quote: a_quote, color: a_color };
 
-        default: console.log("default initial state"); return state;
+        default: return state;
 
     }
 };

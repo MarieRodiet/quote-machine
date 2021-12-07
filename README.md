@@ -1,18 +1,22 @@
 # Build a Random Quote Machine using React and Redux
 
-freeCodeCamp's Front End Libraries Projects
+The first of freeCodeCamp's Front End Libraries Project
 
-## Install
+## Install on your machine
 
 1. Git clone repo
 2. Install required packages with `$ npm install`
 
-## Run
+## Run on your local server
 
 1. Run with `$ npm start`
 2. Now open [http://localhost:3000](http://localhost:3000).
 
-## Challenge Instructions
+## View Live on codepen.io
+
+[https://codepen.io/marierodiet/pen/VwMaKLa](https://codepen.io/marierodiet/pen/VwMaKLa)
+
+## Instructions
 
 - **Objective:** Build a [CodePen.io](https://codepen.io) app that is functionally similar to this: [https://codepen.io/freeCodeCamp/full/qRZeGZ](https://codepen.io/freeCodeCamp/full/qRZeGZ).
 

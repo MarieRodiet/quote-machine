@@ -1,7 +1,6 @@
 import { CHANGE_INDEX } from './actions';
 
 export const changeIndex = (index) => {
-    console.log("inside changeIndex action creator: " + index);
     const colors =
         ["#94455c",
             "#2596BE",
@@ -34,10 +33,6 @@ export const changeIndex = (index) => {
         { q: "Success seems to be largely a matter of hanging on after others have let go.", a: "William Feather" },
         { q: "Develop success from failures. Discouragement and failure are two of the surest stepping stones to success.", a: "Dale Carnegie" },
     ];
-    console.log({
-        quote: { ...quotes[index] },
-        color: colors[index]
-    });
     return {
         type: CHANGE_INDEX,
         state: {
