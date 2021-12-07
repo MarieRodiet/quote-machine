@@ -1,33 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { CHANGE_INDEX } from './actions';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { applyMiddleware, createStore, compose } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers.js/reducer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import thunk from 'redux-thunk';
-
-const initialState = {};
-const middleware = [thunk];
-const store = createStore(reducer, initialState, compose(applyMiddleware(...middleware))
-);
+import { changeIndex } from "./action-creators";
+const store = createStore(reducer);
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    generateNewIndex: () => {
-      dispatch(CHANGE_INDEX())
+    generateNewIndex: (index) => {
+      dispatch(changeIndex(index))
     }
   };
 }
 
-//unable the App component to access what is in the Redux store
 function mapStateToProps(state) {
+  //UNDEFINED WHEN NEW QUOTE IS CLICKED
   return {
     quote: state.quote,
-    color: state.color
+    color: state.color,
   }
 };
 
@@ -35,12 +30,12 @@ function mapStateToProps(state) {
 //connect the redux store to the state of App component
 const Container = connect(mapStateToProps, mapDispatchToProps)(App);
 
-const Wrapper = () => (
+const AppWrapper = () => (
   <Provider store={store}>
     <Container />
   </Provider>
 );
-ReactDOM.render(<Wrapper />, document.getElementById('root'));
+ReactDOM.render(<AppWrapper />, document.getElementById('root'));
 
 
 /*
